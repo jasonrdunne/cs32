@@ -24,7 +24,7 @@ class Polygon : public shape {
 			try{
 				for (auto a : theVerts){
 					if (a.x() < 0 || (a.y() < 0)) {
-						throw std::out_of_range("poly vert less zero");
+						throw std::out_of_range("polygon vert less zero");
 					}
 				}
 			}
