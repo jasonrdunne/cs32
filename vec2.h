@@ -46,6 +46,8 @@ class vec2 {
 			return vec2(nicerRand(min, max), nicerRand(min, max));
 		}
 
+		friend vec2 operator+(const vec2 &a, const vec2 &b);
+
 	public:
 		double val[2];
 };
@@ -55,6 +57,10 @@ using point2D = vec2; //2D point
 
 inline std::ostream& operator<<(std::ostream &out, const vec2 &v) {
 	return out << v.val[0] << " " << v.val[1];
+}
+
+inline vec2 operator+(const vec2 &a, const vec2 &b) {
+	return vec2(a.val[0]+b.val[0], a.val[1]+b.val[1]);
 }
 
 

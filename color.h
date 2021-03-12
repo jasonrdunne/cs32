@@ -3,12 +3,12 @@
 
 #include <cmath>
 #include <iostream>
-#include <map>
+
 #include "util.h"
 
 using std::sqrt;
 
-/* A color for a PPM file is red, greem blue amounts as whole numbers 0-255 */
+/* A color for a PPM file is red, green blue amounts as whole numbers 0-255 */
 class color {
 public:
 		color(double in1, double in2, double in3) : val{in1, in2, in3} {}
@@ -19,9 +19,12 @@ public:
 		double r() const { return val[0]; }
 		double g() const { return val[1]; }
 		double b() const { return val[2]; }
+		double bright() const { return val[0]+val[1]+val[2]; }
+		
 		void setR(double inX) { val[0] = inX; }
 		void setG(double inY) { val[1] = inY; }
 		void setB(double inZ) { val[2] = inZ; }
+		void setC(color inC) {val[0] = inC.r(); val[1] = inC.g(); val[2] = inC.b();}
 
 		//overload operators
 		color& operator+=(const color &v) {
@@ -58,8 +61,6 @@ public:
 
 	private:
 		double val[3];
-		map<string, color> colors;
-		
 };
 
 
